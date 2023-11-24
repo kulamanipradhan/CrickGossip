@@ -1,0 +1,23 @@
+<div>
+  <div class="justify-between flex">
+    <h1 class="text-4xl font-bold text-sky-400">Live Cricket Score</h1>
+    <button class="hidden md:inline-block bg-red-400 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded">
+      <a [routerLink]="'/live'" href="" class="text-white no-underline">Refresh</a>
+    </button>
+    
+    <button class="bg-red-400 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded md:fixed md:left-0 md:top-0 md:transform md:-translate-x-full md:transition-transform duration-300">
+      <a [routerLink]="'/live'" href="" class="text-white no-underline" style="writing-mode: vertical-rl; white-space: nowrap;">Refresh</a>
+    </button>
+    
+    
+  </div>
+  <div class="flex flex-wrap -mx-2">
+    @for (match of liveMatches; track $index) {
+    <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
+      <app-match-card [match]="match"></app-match-card>
+    </div>
+    } @empty {
+    <p class="text-gray-500">There is no Match</p>
+    }
+  </div>
+</div>
